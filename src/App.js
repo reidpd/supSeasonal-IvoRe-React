@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Login from './components/navBar';
-
+import NavBar from './components/navBar';
+import Month from './components/month_dropdown'
 // import './App.css';
 
 
@@ -9,7 +10,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      recipes: []
+      recipes: [],
+      months: ""
     }
 
   }
@@ -17,8 +19,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>supSeasonal</h2>
-            <Login />
+          <NavBar />
+
+          {/*Insert and image */}
         </div>
       </div>
     );
