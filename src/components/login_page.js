@@ -49,22 +49,3 @@ const formInstance = (
 );
 
 ReactDOM.render(formInstance, mountNode);
-
-//  const logInPage = (
-//    <form>
-//     <FieldGroup
-//       id="formControlsEmail"
-//       type="email"
-//       label="Email address"
-//       placeholder="Enter email"
-//      />
-//     <FieldGroup
-//       id="formControlsPassword"
-//       label="Password"
-//       type="password"
-//     />
-//    </form>
-//  );
-//
-//
-// ReactDOM.render(logInPage, document.getElementById('root'));

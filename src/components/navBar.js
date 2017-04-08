@@ -5,25 +5,38 @@ import {Navbar} from 'react-bootstrap';
 class NavBar extends Component {
   constructor(props){
     super(props);
-    this.state = {
+    this.state ={
       month: ''
     }
   }
+// formatDate(date) {
+//   return date.toLocaleDateString();
+// }
+//   const newDate = {date: new Date()}
+
+
   render(){
     return (
       // <div>
       //   would like to render an image associated with the time of the month.
       //   might need to be a separate component.
       // </div>
+
       <Navbar>
         <Navbar.Header>
             <Navbar.Brand>
               <div>
-              <a href="#">React-Bootstrap</a>
-            </div>
+              <a href="#">supSeasonal</a>
+              {/* <div clasName={props.newDate}</div> */}
+              </div>
             </Navbar.Brand>
           </Navbar.Header>
+          <div>
+              <input type='text'/>
+           </div>
       </Navbar>
+
+
     )
   }
 }
@@ -60,12 +73,5 @@ class NavBar extends Component {
 //   </Navbar>
 // )
 
-const Login = () => {
-  return (
-    <Navbar.Text pull-right>
-      <a>LogIn</a>
-    </Navbar.Text>
-  )
-}
 
 export default NavBar;
