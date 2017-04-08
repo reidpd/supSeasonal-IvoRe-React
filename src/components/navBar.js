@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 
+import { connect } from 'react-redux';
+import {/* actions */ } from '../actions';
+import { bindActionCreators } from 'redux';
+
+import MonthDropdown from './MonthDropdown';
+
 import {Navbar} from 'react-bootstrap';
 
 class NavBar extends Component {
   constructor(props){
     super(props);
-    this.state ={
+    this.state = {
       month: ''
     }
   }
@@ -13,6 +19,16 @@ class NavBar extends Component {
 //   return date.toLocaleDateString();
 // }
 //   const newDate = {date: new Date()}
+
+  const mapStateToProps = (state, ownProps) => {
+    return {
+      // state properties required
+    }
+  }
+
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ /* actions from line 4 */ }, dispatch);
+  }
 
 
   render(){
@@ -24,16 +40,14 @@ class NavBar extends Component {
 
       <Navbar>
         <Navbar.Header>
-            <Navbar.Brand>
-              <div>
-              <a href="#">supSeasonal</a>
-              {/* <div clasName={props.newDate}</div> */}
-              </div>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <div>
-              <input type='text'/>
-           </div>
+          <Navbar.Brand>
+            <div>
+            <a href="#">supSeasonal</a>
+            {/* <div clasName={props.newDate}</div> */}
+            </div>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <MonthDropdown />
       </Navbar>
 
 
@@ -73,5 +87,5 @@ class NavBar extends Component {
 //   </Navbar>
 // )
 
-
-export default NavBar;
+// string will change, thus requiring mapStateToProps
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
