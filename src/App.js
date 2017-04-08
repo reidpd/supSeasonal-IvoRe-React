@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import NavBar from './components/NavBar';
 // import {FieldGroup} from 'react-bootstrap';
-import Month from './components/Month_dropdown';
-import IngredientListItem from './components/Single_ingredient';
-import IngredientsList from './components/Ingredients_list';
+import Month from './components/MonthDropdown';
+import IngredientListItem from './components/SingleIngredient';
+import IngredientsList from './components/IngredientsList';
 // import LogIn from './components/Login_page';
 // import './App.css';
 
