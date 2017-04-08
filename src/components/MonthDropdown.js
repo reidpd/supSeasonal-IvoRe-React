@@ -24,4 +24,5 @@ const Months = () => {
   </div>
   );
 };
-export default Months
+
+export default Months;
