@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import IngredientsList from './components/IngredientsList';
 import RecipesList from './components/RecipesList';
 
+import { ListGroup } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -24,8 +25,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <NavBar />
-          <IngredientsList ingrList={ingrList}/>
-          <RecipesList recList={recList}/>
+          <ListGroup>
+            <IngredientsList ingrList={ingrList}/>
+          </ListGroup>
+          <ListGroup>
+            <RecipesList recList={recList}/>
+          </ListGroup>
           {/*Insert and image */}
         </div>
       </div>

@@ -40,13 +40,11 @@ const IngredientsList=  (props) => {
   // const singleIngredient = props.ingredient.map((ingredient) => {}
 
   return (
-    <ListGroup>
       <ListGroupItem>Ingredient1 </ListGroupItem>
       {/* <ListGroupItem>Ingredient2 </ListGroupItem>
       <ListGroupItem>Ingredient3 </ListGroupItem>
       <ListGroupItem>Ingredient4 </ListGroupItem>
       <ListGroupItem>Ingredient5 </ListGroupItem> */}
-    </ListGroup>
 
   )
 
