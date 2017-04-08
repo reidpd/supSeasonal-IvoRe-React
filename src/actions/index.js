@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 
-export const action1 = (props) => {
+export const setMonth = (queryMonth) => {
   return {
-    type: 'ACTION_1',
-    props
+    type: 'SET_MONTH',
+    month: queryMonth
   }
 }
 
-export const action2 = (props) => {
-  const data = /* API Fetch */;
+export const getIngredients = (queryMonth) => {
+  const data = fetchIngredients(queryMonth);
   return {
-    type: 'ACTION_2',
+    type: 'GET_INGREDIENTS',
+    payload: data
+  }
+}
+
+export const getRecipes = (queryMonth) => {
+  const data = fetchRecipes(queryMonth);
+  return {
+    type: 'GET_RECIPES',
     payload: data
   }
 }
