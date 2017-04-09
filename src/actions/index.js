@@ -19,6 +19,7 @@ const fetchRecipes = (queryMonth) => {
 }
 
 const setMonth = (queryMonth) => {
+  console.log('i am clicked');
   return {
     type: 'SET_MONTH',
     month: queryMonth

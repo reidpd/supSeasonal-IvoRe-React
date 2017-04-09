@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { setMonth, getIngredients, getRecipes } from '../actions';
 import { bindActionCreators } from 'redux';
 
-import MonthDropdown from './MonthDropdown';
+import Months from './MonthDropdown';
 
 import {Navbar} from 'react-bootstrap';
 
@@ -34,7 +34,7 @@ const NavBar = () => {
           </div>
         </Navbar.Brand>
       </Navbar.Header>
-      <MonthDropdown onChange={(event) => {
+      <Months onChange={(event) => {
         this.props.setMonth(event.target.value);
       }}/>
     </Navbar>
