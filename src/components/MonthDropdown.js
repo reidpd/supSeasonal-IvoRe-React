@@ -2,35 +2,53 @@ import React from 'react';
 
 import { setMonth } from '../actions';
 
-import {NavDropdown, MenuItem, Nav} from 'react-bootstrap';
+// import { DropdownButton } from 'react-bootstrap';
+// import {NavDropdown, MenuItem, Nav} from 'react-bootstrap';
+// import { MenuItem } from 'react-bootstrap';
+// import { Nav } from 'react-bootstrap';
+// import { NavDropdown } from 'react-bootstrap';
 
 const Months = () => {
   console.log('there');
   return (
-  <div>
-    <Nav>
-      <NavDropdown
-        eventKey={3}
-        title="Months"
-        id="basic-nav-dropdown"
-        onChange={(event) => {
+    <select>
+        <option onChange={(event) => {
           setMonth(event.target.value);
-        }}>
-        <MenuItem eventKey={3.1}> January</MenuItem>
-        <MenuItem eventKey={3.1}> February</MenuItem>
-        <MenuItem eventKey={3.1}> March</MenuItem>
-        <MenuItem eventKey={3.1}> April</MenuItem>
-        <MenuItem eventKey={3.1}> May</MenuItem>
-        <MenuItem eventKey={3.1}> June</MenuItem>
-        <MenuItem eventKey={3.1}> July</MenuItem>
-        <MenuItem eventKey={3.1}> August</MenuItem>
-        <MenuItem eventKey={3.1}> September</MenuItem>
-        <MenuItem eventKey={3.1}> October</MenuItem>
-        <MenuItem eventKey={3.1}> November</MenuItem>
-        <MenuItem eventKey={3.1}> December</MenuItem>
-      </NavDropdown>
-    </Nav>
-  </div>
+        }}>jan</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>feb</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>mar</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>apr</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>may</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>jun</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>jul</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>aug</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>sep</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>oct</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>nov</option>
+        <option onChange={(event) => {
+          setMonth(event.target.value);
+        }}>dec</option>
+    </select>
   );
 };
 

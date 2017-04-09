@@ -9,8 +9,9 @@ import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 const _renderIngredients = (ingredientsList) => {
   console.log(ingredientsList);
-  if (ingredientsList === []) { return 'No ingredients here!' } else {
-    return ingredientsList.map((item) => {
+  if (ingredientsList.ingredientsList.length === 0) { return 'No ingredients here!' } else {
+    console.log(ingredientsList);
+    return ingredientsList.ingredientsList.map((item) => {
       return <ListGroupItem>{item.food_name}</ListGroupItem>
     });
   }
