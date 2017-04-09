@@ -25,9 +25,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <NavBar />
-          <ListGroup>
-            <IngredientsList ingrList={ingrList}/>
-          </ListGroup>
+          <IngredientsList ingrList={ingrList}/>
           <ListGroup>
             <RecipesList recList={recList}/>
           </ListGroup>
