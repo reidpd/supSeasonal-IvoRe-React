@@ -7,24 +7,26 @@ import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 
 
-const _renderIngredients = (ingrList) => (
-  ingrList
-  .map(item => {
-    <ListGroupItem>{item.food_name}</ListGroupItem>
-  })
-)
-
-const IngredientsList =  (ingrList) => {
-
-  const mapStateToProps = (state, ownProps) => {
-    return {
-      ingrList: state.ingredients
-    }
+const _renderIngredients = (ingredientsList) => {
+  console.log(ingredientsList);
+  if (ingredientsList === []) { return 'No ingredients here!' } else {
+    return ingredientsList.map((item) => {
+      return <ListGroupItem>{item.food_name}</ListGroupItem>
+    });
   }
+}
 
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.ingredients);
+  return {
+    ingredientsList: state.ingredients
+  }
+}
+
+const IngredientsList =  (ingredientsList) => {
   return (
     <ListGroup>
-      {_renderIngredients(ingrList)}
+      {_renderIngredients(ingredientsList)}
     </ListGroup>
   )
 }

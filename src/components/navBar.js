@@ -1,60 +1,44 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
-import {/* actions */ } from '../actions';
+import { setMonth, getIngredients, getRecipes } from '../actions';
 import { bindActionCreators } from 'redux';
 
 import MonthDropdown from './MonthDropdown';
 
 import {Navbar} from 'react-bootstrap';
 
-class NavBar extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      month: ''
-    }
-  }
-// formatDate(date) {
-//   return date.toLocaleDateString();
-// }
-//   const newDate = {date: new Date()}
+const mapStateToProps = (state, ownProps) => {
+  return ({
+    ingrList: state.ingredients,
+    recList: state.recipes,
+    month: state.currentSelectedMonth
+  })
+}
 
-  const mapStateToProps = (state, ownProps) => {
-    return {
-      // state properties required
-    }
-  }
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({ setMonth, getIngredients, getRecipes }, dispatch);
+}
 
-  const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ /* actions from line 4 */ }, dispatch);
-  }
-
-
-  render(){
-    return (
-      // <div>
-      //   would like to render an image associated with the time of the month.
-      //   might need to be a separate component.
-      // </div>
-
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <div>
-            <a href="#">supSeasonal</a>
-            {/* <div clasName={props.newDate}</div> */}
-            </div>
-          </Navbar.Brand>
-        </Navbar.Header>
-        <MonthDropdown onChange={(event) => {
-          this.props.setMonth(event.target.value);
-        }}/>
-      </Navbar>
-
-
-    )
-  }
+const NavBar = () => {
+  return (
+    // <div>
+    //   would like to render an image associated with the time of the month. might need to be a separate component.
+    // </div>
+    <Navbar>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <div>
+          <a href="#">supSeasonal</a>
+          {/* <div clasName={props.newDate}</div> */}
+          </div>
+        </Navbar.Brand>
+      </Navbar.Header>
+      <MonthDropdown onChange={(event) => {
+        this.props.setMonth(event.target.value);
+      }}/>
+    </Navbar>
+  )
 }
 
 // class NavBar extends Component {

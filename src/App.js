@@ -4,19 +4,17 @@ import React, {Component} from 'react';
 
 import NavBar from './components/NavBar';
 import IngredientsList from './components/IngredientsList';
-import RecipesList from './components/RecipesList';
-
-import { ListGroup } from 'react-bootstrap';
+// import RecipesList from './components/RecipesList';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       ingredients: [],
       recipes: [],
-      currentSelectedMonth: "",
+      currentSelectedMonth: "apr",
     }
   }
 
@@ -25,10 +23,8 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <NavBar />
-          <IngredientsList ingrList={ingrList}/>
-          <ListGroup>
-            <RecipesList recList={recList}/>
-          </ListGroup>
+          <IngredientsList />
+          {/* <RecipesList /> */}
           {/*Insert and image */}
         </div>
       </div>
@@ -37,4 +33,4 @@ class App extends Component {
 }
 
 
-export default App
+// export default App;

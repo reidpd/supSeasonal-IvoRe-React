@@ -1,12 +1,13 @@
 import initialState from './initialState';
 
-const ingredientsReducer = (state = initialState.ingredients, action) => {
+const ingredients = (state = initialState, action) => {
   switch(action.type) {
     case 'GET_INGREDIENTS':
+      console.log('this is action.payload', action.payload);
       return action.payload;
     default:
-      return state;
+      return state.ingredients;
   }
 }
 
-export default ingredientsReducer;
+export default ingredients;

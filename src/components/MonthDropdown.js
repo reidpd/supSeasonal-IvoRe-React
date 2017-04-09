@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-import {  }
+import { setMonth } from '../actions';
 
 import {NavDropdown, MenuItem, Nav} from 'react-bootstrap';
 
 const Months = () => {
-
+  console.log('there');
   return (
   <div>
     <Nav>
@@ -14,7 +14,7 @@ const Months = () => {
         title="Months"
         id="basic-nav-dropdown"
         onChange={(event) => {
-          this.props.setMonth(event.target.value);
+          setMonth(event.target.value);
         }}>
         <MenuItem eventKey={3.1}> January</MenuItem>
         <MenuItem eventKey={3.1}> February</MenuItem>

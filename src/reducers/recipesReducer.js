@@ -1,12 +1,12 @@
 import initialState from './initialState';
 
-const recipesReducer = (state = initialState.recipes, action) => {
+const recipes = (state = initialState, action) => {
   switch(action.type) {
     case 'GET_RECIPES':
       return action.payload;
     default:
-      return state;
+      return state.recipes;
   }
 }
 
-export default recipesReducer;
+export default recipes;

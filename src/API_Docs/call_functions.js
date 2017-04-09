@@ -52,12 +52,12 @@
 //create a fetch function that will format the URL we are sending.
 //
 import axios from 'axios';
+import { promiseMiddleware, composeStoreWithMiddleware, applyMiddleware } from 'redux-promise-middleware';
+import { createStore } from 'redux';
 
-composeStoreWithMiddleware = applyMiddleware(
-  promiseMiddleware()
-)(createStore);
+composeStoreWithMiddleware = applyMiddleware( promiseMiddleware() )(createStore);
 
-export default const fetchIngredients = (queryMonth) => {
+const fetchIngredients = (queryMonth) => {
   const API_URL = `http://supseasonal.herokuapp.com/api/months/${queryMonth}`
   return axios.get(API_URL)
     .then((response) => {
@@ -65,10 +65,12 @@ export default const fetchIngredients = (queryMonth) => {
     });
 }
 
-export default const fetchRecipes = (queryMonth) => {
+const fetchRecipes = (queryMonth) => {
   const API_URL = `http://supseasonal.herokuapp.com/api/months/${queryMonth}/recipes`;
   return axios.get(API_URL)
     .then((response) => {
       return response.data;
     });
 }
+
+export default { fetchIngredients, fetchRecipes }

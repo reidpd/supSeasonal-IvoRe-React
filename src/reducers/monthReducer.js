@@ -1,12 +1,12 @@
 import initialState from './initialState';
 
-const monthReducer = (state = initialState.currentSelectedMonth, action) => {
+const currentSelectedMonth = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_MONTH':
-      return /*Important piece of state, translated via action  (eg action.text)*/;
+      return action.month;
     default:
-      return state;
+      return state.currentSelectedMonth;
   }
 }
 
-export default monthReducer;
+export default currentSelectedMonth;
