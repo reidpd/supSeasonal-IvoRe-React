@@ -1,5 +1,5 @@
 export default {
   ingredients: [],
   recipes: [],
-  currentSelectedMonth: "" 
+  currentSelectedMonth: 'apr' 
 }

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import monthReducer from './monthReducer';
-import ingredientsReducer from './ingredientsReducer';
-import recipesReducer from './recipesReducer';
+import currentSelectedMonth from './monthReducer';
+import ingredients from './ingredientsReducer';
+import recipes from './recipesReducer';
 
 const supseasonalReducers = combineReducers({
-  ingredients: ingredientsReducer,
-  recipes: recipesReducer,
-  currentSelectedMonth: monthReducer
+  ingredients,
+  recipes,
+  currentSelectedMonth
 });
 
 export default supseasonalReducers;
