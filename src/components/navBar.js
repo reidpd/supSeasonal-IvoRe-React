@@ -47,7 +47,9 @@ class NavBar extends Component {
             </div>
           </Navbar.Brand>
         </Navbar.Header>
-        <MonthDropdown />
+        <MonthDropdown onChange={(event) => {
+          this.props.setMonth(event.target.value);
+        }}/>
       </Navbar>
 
 

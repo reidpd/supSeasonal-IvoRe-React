@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { fetchIngredients, fetchRecipes } from '../API_Docs/call_functions';
+// import { fetchRecipes } from '../API_Docs/Recipes';
 
 export const setMonth = (queryMonth) => {
   return {
