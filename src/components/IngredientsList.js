@@ -1,18 +1,3 @@
-// import ReactDOM from 'react-dom';
-// import Single_ingredient from './Single_ingredient';
-//
-// const Ingredients_In_Season = (props) => {
-//   const ingredients = props.____.map((ingredient) => {
-//     return <IngredientListItem />
-//   })
-//
-//   return (
-//     <ul>
-//       {ingredients}
-//     </ul>
-//   )
-// }
-
 import React from 'react';
 import { connect } from 'react-redux';
 // import { setMonth, getIngredients } from '../actions';
@@ -33,7 +18,7 @@ const IngredientsList =  (ingrList) => {
 
   const mapStateToProps = (state, ownProps) => {
     return {
-      ingrList: state.ingredients;
+      ingrList: state.ingredients
     }
   }
 
