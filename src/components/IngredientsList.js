@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setMonth, getIngredients } from '../actions';
 
-// import {ListGroup, ListGroupItem} from 'react-bootstrap';
+import './IngredientsList.css';
+import { Row, Col, Chip } from 'react-materialize';
 
 const _renderIngredients = (ingredients) => {
   console.log('src/components/IngredientsList/_renderIngredients');
@@ -14,7 +15,10 @@ const _renderIngredients = (ingredients) => {
     console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.payload.length!==0');
     return ingredients.map((item) => {
       console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.ingredientsList===0/ingredientsList.map');
-      return <li>{item.food_name}</li>
+      return    <Chip className="ingredientChip">
+                  {item.food_name}
+                </Chip>
+
     });
   }
 }
@@ -37,17 +41,11 @@ class IngredientsList extends Component {
   render() {
     console.log('src/components/IngredientsList/render()');
     return (
-      <ul>
+      <Row>
         {_renderIngredients(this.props.ingredients)}
-      </ul>
+      </Row>
     );
   }
 }
-
-  // const mapDispatchToProps = (dispatch) => {
-  //   return bindActionCreators({ /* actions from line 4 */ }, dispatch);
-  // }
-
-  // const singleIngredient = props.ingredient.map((ingredient) => {}
 
 export default connect(mapStateToProps)(IngredientsList);
