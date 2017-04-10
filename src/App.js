@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 
 import NavBar from './components/NavBar';
 import IngredientsList from './components/IngredientsList';
-// import RecipesList from './components/RecipesList';
+import RecipesList from './components/RecipesList';
 import './App.css';
 
 export default class App extends Component {
@@ -14,7 +14,7 @@ export default class App extends Component {
     this.state = {
       ingredients: [],
       recipes: [],
-      currentSelectedMonth: "apr",
+      currentSelectedMonth: "jan",
     }
   }
 
@@ -24,7 +24,7 @@ export default class App extends Component {
         <div className="App-header">
           <NavBar />
           <IngredientsList />
-          {/* <RecipesList /> */}
+          <RecipesList />
           {/*Insert and image */}
         </div>
       </div>

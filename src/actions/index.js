@@ -2,7 +2,7 @@
 import axios from 'axios';
 // import { fetchRecipes } from '../API_Docs/Recipes';
 
-const fetchIngredients = (queryMonth) => {
+export const fetchIngredients = (queryMonth) => {
   const API_URL = `http://supseasonal.herokuapp.com/api/months/${queryMonth}`
   return axios.get(API_URL)
     .then((response) => {
@@ -10,7 +10,7 @@ const fetchIngredients = (queryMonth) => {
     });
 }
 
-const fetchRecipes = (queryMonth) => {
+export const fetchRecipes = (queryMonth) => {
   const API_URL = `http://supseasonal.herokuapp.com/api/months/${queryMonth}/recipes`;
   return axios.get(API_URL)
     .then((response) => {
@@ -18,28 +18,37 @@ const fetchRecipes = (queryMonth) => {
     });
 }
 
-const setMonth = (queryMonth) => {
-  console.log('i am clicked');
+export const allMonths = {
+  January: 'jan',
+  February: 'feb',
+  March: 'mar',
+  April: 'apr'
+}
+
+
+export const setMonth = (queryMonth) => {
   return {
     type: 'SET_MONTH',
     month: queryMonth
   }
 }
 
-const getIngredients = (queryMonth) => {
+export const getIngredients = (queryMonth) => {
   const data = fetchIngredients(queryMonth);
+  console.log('ingredients data', data);
   return {
     type: 'GET_INGREDIENTS',
     payload: data
   }
 }
 
-const getRecipes = (queryMonth) => {
+export const getRecipes = (queryMonth) => {
   const data = fetchRecipes(queryMonth);
+  console.log('recipe data', data);
   return {
     type: 'GET_RECIPES',
     payload: data
   }
 }
 
-export default { setMonth, getIngredients, getRecipes, fetchIngredients, fetchRecipes }
+// export default { setMonth, getIngredients, getRecipes, fetchIngredients, fetchRecipes }

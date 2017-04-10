@@ -1,24 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { setMonth, getIngredients } from '../actions';
+import { setMonth, getIngredients } from '../actions';
 // import { bindActionCreators } from 'redux';
 
-import {ListGroup, ListGroupItem} from 'react-bootstrap';
-
-
+// import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 const _renderIngredients = (ingredientsList) => {
-  console.log(ingredientsList);
+  console.log('ingredientList', ingredientsList);
   if (ingredientsList.ingredientsList.length === 0) { return 'No ingredients here!' } else {
-    console.log(ingredientsList);
+    console.log(ingredientsList.ingredientsList);
     return ingredientsList.ingredientsList.map((item) => {
-      return <ListGroupItem>{item.food_name}</ListGroupItem>
+      return <li>{item.food_name}</li>
     });
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.ingredients);
+  console.log('ingredients', state.ingredients);
   return {
     ingredientsList: state.ingredients
   }
@@ -26,9 +24,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const IngredientsList =  (ingredientsList) => {
   return (
-    <ListGroup>
+    <ul>
       {_renderIngredients(ingredientsList)}
-    </ListGroup>
+    </ul>
   )
 }
 
@@ -37,14 +35,5 @@ const IngredientsList =  (ingredientsList) => {
   // }
 
   // const singleIngredient = props.ingredient.map((ingredient) => {}
-
-  // return (
-  //     <ListGroupItem>Ingredient1 </ListGroupItem>
-  //     {/* <ListGroupItem>Ingredient2 </ListGroupItem>
-  //     <ListGroupItem>Ingredient3 </ListGroupItem>
-  //     <ListGroupItem>Ingredient4 </ListGroupItem>
-  //     <ListGroupItem>Ingredient5 </ListGroupItem> */}
-  //
-  // )
 
 export default connect(mapStateToProps)(IngredientsList);
