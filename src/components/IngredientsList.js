@@ -1,35 +1,52 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { setMonth, getIngredients } from '../actions';
+import { bindActionCreators } from 'redux';
+import { setMonth, fetchIngredients, fetchRecipes, getIngredients, getRecipes } from '../actions';
 // import { bindActionCreators } from 'redux';
 
-import {ListGroup, ListGroupItem} from 'react-bootstrap';
+// import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
-
-
-const _renderIngredients = (ingredientsList) => {
-  console.log(ingredientsList);
-  if (ingredientsList.ingredientsList.length === 0) { return 'No ingredients here!' } else {
-    console.log(ingredientsList);
-    return ingredientsList.ingredientsList.map((item) => {
-      return <ListGroupItem>{item.food_name}</ListGroupItem>
+const _renderIngredients = (ingredients) => {
+  console.log('src/components/IngredientsList/_renderIngredients');
+  if (ingredients.length === 0) {
+    console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.payload.length===0');
+    return 'Select your current month & hit submit to see a list of all the freshest ingredients that can be found!';
+  } else {
+    console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.payload.length!==0');
+    return ingredients.map((item) => {
+      console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.ingredientsList===0/ingredientsList.map');
+      return <li>{item.food_name}</li>
     });
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('src/components/IngredientsList/mapStateToProps');
   console.log(state.ingredients);
   return {
-    ingredientsList: state.ingredients
+    ingredients: state.ingredients,
+    currentSelectedMonth: state.currentSelectedMonth
   }
 }
 
-const IngredientsList =  (ingredientsList) => {
-  return (
-    <ListGroup>
-      {_renderIngredients(ingredientsList)}
-    </ListGroup>
-  )
+const mapDispatchToProps = (dispatch) => {
+  console.log('src/components/ingredientsList/mapDispatchToProps');
+  return bindActionCreators({ getIngredients }, dispatch)
+}
+
+class IngredientsList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    console.log('src/components/IngredientsList/render()');
+    return (
+      <ul>
+        {_renderIngredients(this.props.ingredients)}
+      </ul>
+    );
+  }
 }
 
   // const mapDispatchToProps = (dispatch) => {
@@ -37,14 +54,5 @@ const IngredientsList =  (ingredientsList) => {
   // }
 
   // const singleIngredient = props.ingredient.map((ingredient) => {}
-
-  // return (
-  //     <ListGroupItem>Ingredient1 </ListGroupItem>
-  //     {/* <ListGroupItem>Ingredient2 </ListGroupItem>
-  //     <ListGroupItem>Ingredient3 </ListGroupItem>
-  //     <ListGroupItem>Ingredient4 </ListGroupItem>
-  //     <ListGroupItem>Ingredient5 </ListGroupItem> */}
-  //
-  // )
 
 export default connect(mapStateToProps)(IngredientsList);
