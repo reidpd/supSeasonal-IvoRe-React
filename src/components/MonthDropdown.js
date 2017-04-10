@@ -42,6 +42,7 @@ class MonthDropdown extends React.Component {
     console.log('src/components/MonthDropdown/handleSubmit');
     event.preventDefault();
     this.props.getIngredients(this.props.currentSelectedMonth);
+    this.props.getRecipes(this.props.currentSelectedMonth);
   }
 
   render() {

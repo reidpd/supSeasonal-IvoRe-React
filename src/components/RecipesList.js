@@ -1,37 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { setMonth, getRecipes } from '../actions';
-// import { bindActionCreators } from 'redux';
 
 // import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
 const _renderRecipes = (recipes) => {
-  console.log(recipes);
-  if (recipes.length === 0) { return (<div>No recipes here!</div>) } else {
-    return recipes.recipes.map((item) => {
-      return <li>{/* recipe info */}</li>
-    });
+  console.log('src/components/RecipesList/_renderRecipes');
+  if (recipes.length === 0) {
+    return 'Select your current month & see a list of awesome recipes that include ingredients listed above!'
+  } else {
+    console.log('src/components/RecipesList/_renderRecipes/length>0');
+    return recipes.map((item) => {
+      return <div>
+        <img src={item.image} />
+        <header>{item.title}</header>
+        <div>{item.servings}</div>
+        <div>{item.readyInMinutes}</div>
+        <div>
+          <ul>
+            {_renderRecipeExtendedIngredients(item.extendedIngredients)}
+          </ul>
+        </div>
+        <div>
+          {item.instructions}
+        </div>
+      </div>
+    })
   }
+}
+
+const _renderRecipeExtendedIngredients = (ingredients) => {
+  return ingredients.map((ingr) => {
+    return <div>
+      <img src={ingr.image} />
+      <p>{ingr.name}</p>
+      <p>{ingr.originalString}</p>
+    </div>
+  })
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('src/components/recipesList/mapStateToProps');
   console.log(state.recipes);
   return {
-    recipes: state.recipes
+    recipes: state.recipes,
+    currentSelectedMonth: state.currentSelectedMonth
   }
 }
 
-const RecipesList =  (recipes) => {
-  return (
-    <ul>
-      {_renderRecipes(recipes)}
-    </ul>
-  )
+const mapDispatchToProps = (dispatch) => {
+  console.log('src/components/recipesList/mapDispatchToProps');
+  return bindActionCreators({ getRecipes }, dispatch);
 }
 
-  // const mapDispatchToProps = (dispatch) => {
-  //   return bindActionCreators({ /* actions from line 4 */ }, dispatch);
-  // }
+class RecipesList extends Component {
+  render() {
+    console.log('src/components/RecipesList/render()');
+    return (
+      <div>
+        {_renderRecipes(this.props.recipes)}
+      </div>
+    )
+  }
+}
+
 
   // const singleIngredient = props.ingredient.map((ingredient) => {}
 
@@ -44,4 +77,4 @@ const RecipesList =  (recipes) => {
   //
   // )
 
-export default connect(mapStateToProps)(RecipesList);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesList);
