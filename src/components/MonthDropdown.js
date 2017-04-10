@@ -9,21 +9,21 @@ import { setMonth, fetchIngredients, fetchRecipes, getIngredients, getRecipes } 
 // import { Nav } from 'react-bootstrap';
 // import { NavDropdown } from 'react-bootstrap';
 
-let monthState;
-
 const mapStateToProps = (state, ownProps) => {
+  console.log('src/components/MonthDropdown/mapStateToProps');
   return ({
-    ingredients: getIngredients(state.currentSelectedMonth),
-    recipes: getRecipes(state.currentSelectedMonth),
-    currentSelectedMonth: monthState
+    ingredients: state.ingredients,
+    recipes: state.recipes,
+    currentSelectedMonth: state.currentSelectedMonth
   })
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ setMonth, getIngredients, getRecipes })
+  console.log('src/components/MonthDropdown/mapDispatchToProps');
+  return bindActionCreators({ setMonth, getIngredients, getRecipes }, dispatch)
 }
 
-class Months extends React.Component {
+class MonthDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: 'jan'};
@@ -33,20 +33,24 @@ class Months extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    console.log('src/components/MonthDropdown/handleChange');
+    console.log('event.target.value', event.target.value);
+    this.props.setMonth(event.target.value);
   }
 
   handleSubmit(event) {
+    console.log('src/components/MonthDropdown/handleSubmit');
     event.preventDefault();
-    monthState = this.state.value;
+    this.props.getIngredients(this.props.currentSelectedMonth);
   }
 
   render() {
+    console.log('src/components/MonthDropdown/render');
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Pick your current month for fresh ingredients:
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={this.props.currentSelectedMonth} onChange={this.handleChange}>
             <option value="jan">January</option>
             <option value="feb">February</option>
             <option value="mar">March</option>
@@ -67,54 +71,4 @@ class Months extends React.Component {
   }
 }
 
-///////////////////////////////
-
-// const Months = () => {
-//   console.log('there');
-//   return (
-//     <div>
-//       <select>
-//           <option
-//             onSelect={(event) => {  console.log('jan!'); setMonth(event.target.value);  }}
-//             value='jan'>January</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='feb'>February</option>
-//           <option
-//             onSelect={(event) => {  console.log('selected');  }}
-//             value='mar'>March</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='apr'>April</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='may'>May</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='jun'>June</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='jul'>July</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='aug'>August</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='sep'>September</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='oct'>October</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='nov'>November</option>
-//           <option
-//             onSelect={(event) => {  setMonth(event.target.value);  }}
-//             value='dec'>December</option>
-//       </select>
-//       <input type="submit" onClick={(event) => {  }}></input>
-//     </div>
-//   );
-// };
-
-// export default Months;
-export default connect(mapStateToProps, mapDispatchToProps)(Months);
+export default connect(mapStateToProps, mapDispatchToProps)(MonthDropdown);

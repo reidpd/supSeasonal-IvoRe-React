@@ -19,6 +19,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log('src/App.js/render');
     return (
       <div className="App">
         <div className="App-header">

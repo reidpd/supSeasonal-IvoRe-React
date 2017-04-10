@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { setMonth, getIngredients, getRecipes } from '../actions';
 import { bindActionCreators } from 'redux';
 
-import Months from './MonthDropdown';
+import MonthDropdown from './MonthDropdown';
 
 // import {Navbar} from 'react-bootstrap';
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('src/components/NavBar/mapStateToProps');
   return ({
     ingredients: state.ingredients,
     recipes: state.recipes,
@@ -17,10 +18,12 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
+  console.log('src/components/NavBar/mapDispatchToProps');
   return bindActionCreators({ setMonth, getIngredients, getRecipes }, dispatch);
 }
 
 const NavBar = () => {
+  console.log('src/components/NavBar/const_NavBar()');
   return (
     // <div>
     //   would like to render an image associated with the time of the month. might need to be a separate component.
@@ -32,7 +35,7 @@ const NavBar = () => {
           {/* <div clasName={props.newDate}</div> */}
         </div>
       </header>
-      <Months />
+      <MonthDropdown />
     </nav>
   )
 }
