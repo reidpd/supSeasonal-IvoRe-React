@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setMonth, fetchIngredients, fetchRecipes, getIngredients, getRecipes } from '../actions';
-// import { bindActionCreators } from 'redux';
+import { setMonth, getIngredients } from '../actions';
 
 // import {ListGroup, ListGroupItem} from 'react-bootstrap';
 
@@ -34,11 +33,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ getIngredients }, dispatch)
 }
 
-class IngredientsList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+class IngredientsList extends Component {
   render() {
     console.log('src/components/IngredientsList/render()');
     return (

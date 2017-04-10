@@ -3,7 +3,7 @@ import initialState from './initialState';
 const recipes = (state = initialState.recipes, action) => {
   console.log('src/reducers/recipesReducer/const_recipesReducer()');
   switch(action.type) {
-    case 'GET_RECIPES':
+    case 'GET_RECIPES_FULFILLED':
       console.log('src/reducers/recipesReducer/const_recipesReducer()/GET_RECIPES');
       return action.payload;
     default:
