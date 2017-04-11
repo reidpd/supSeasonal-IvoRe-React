@@ -25,12 +25,10 @@ class NavBar extends Component {
       <div>
         <header>
           <div>
-            <a href="#"><h3>supSeasonal</h3></a>
-            {/* <div clasName={props.newDate}</div> */}
+            <a href="#"><h3>supSeasonal!!</h3></a>
           </div>
           <MonthDropdown />
         </header>
-        <h4>Current Month Selected: {this.props.currentSelectedMonth}</h4>
       </div>
     )
   }
