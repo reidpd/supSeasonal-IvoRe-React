@@ -12,7 +12,6 @@ import App from './App';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import './index.css';
 
 const store = createStore(
