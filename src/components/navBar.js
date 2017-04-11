@@ -28,15 +28,15 @@ const NavBar = () => {
     // <div>
     //   would like to render an image associated with the time of the month. might need to be a separate component.
     // </div>
-    <nav>
+    <div>
       <header>
         <div>
           <a href="#">supSeasonal</a>
           {/* <div clasName={props.newDate}</div> */}
         </div>
+        <MonthDropdown />
       </header>
-      <MonthDropdown />
-    </nav>
+    </div>
   )
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setMonth, getIngredients } from '../actions';
+import { getIngredients } from '../actions';
 
 import './IngredientsList.css';
 import { Row, Col, Chip } from 'react-materialize';
@@ -15,10 +15,11 @@ const _renderIngredients = (ingredients) => {
     console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.payload.length!==0');
     return ingredients.map((item) => {
       console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.ingredientsList===0/ingredientsList.map');
-      return    <Chip className="ingredientChip">
-                  {item.food_name}
-                </Chip>
-
+      if (item.food_name === '') { return '' } else {
+        return    <Chip className="ingredientChip">
+                    {item.food_name}
+                  </Chip>
+      }
     });
   }
 }
@@ -32,17 +33,19 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  console.log('src/components/ingredientsList/mapDispatchToProps');
-  return bindActionCreators({ getIngredients }, dispatch)
-}
+// const mapDispatchToProps = (dispatch) => {
+//   console.log('src/components/ingredientsList/mapDispatchToProps');
+//   return bindActionCreators({ getIngredients }, dispatch)
+// }
 
 class IngredientsList extends Component {
   render() {
     console.log('src/components/IngredientsList/render()');
     return (
       <Row>
-        {_renderIngredients(this.props.ingredients)}
+        <Col s={12}>
+          {_renderIngredients(this.props.ingredients)}
+        </Col>
       </Row>
     );
   }

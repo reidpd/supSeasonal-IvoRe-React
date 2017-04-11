@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { setMonth, getRecipes } from '../actions';
 
-import { Card, CardTitle, Table } from 'react-materialize';
+import { Card, CardTitle } from 'react-materialize';
+import { Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn } from 'material-ui/Table';
 
 const _renderRecipes = (recipes) => {
   console.log('src/components/RecipesList/_renderRecipes');
@@ -19,6 +20,16 @@ const _renderRecipes = (recipes) => {
                 reveal={
                   <div>
                     <Table>
+                      <TableHeader>
+                        <TableHeaderColumn>Visual</TableHeaderColumn>
+                        <TableHeaderColumn>Name</TableHeaderColumn>
+                        <TableHeaderColumn>Description</TableHeaderColumn>
+                      </TableHeader>
+                      <TableBody>
+                        {_renderRecipeExtendedIngredients(item.extendedIngredients)}
+                      </TableBody>
+                    </Table>
+                    {/* <Table>
                       <thead>
                         <tr>
                           <th data-field="id">Visual</th>
@@ -30,7 +41,7 @@ const _renderRecipes = (recipes) => {
                       <tbody>
                         {_renderRecipeExtendedIngredients(item.extendedIngredients)}
                       </tbody>
-                    </Table>
+                    </Table> */}
                     <p>{item.instructions}</p>
                   </div>
                   }>
@@ -39,37 +50,17 @@ const _renderRecipes = (recipes) => {
           </Card>
         </div>
       )
-      //////
-      // return <div>
-      //   <img src={item.image} />
-      //   <header>{item.title}</header>
-      //   <div>{item.servings}</div>
-      //   <div>{item.readyInMinutes}</div>
-      //   <div>
-      //     <ul>
-      //       {_renderRecipeExtendedIngredients(item.extendedIngredients)}
-      //     </ul>
-      //   </div>
-      //   <div>
-      //     {item.instructions}
-      //   </div>
-      // </div>
     })
   }
 }
 
 const _renderRecipeExtendedIngredients = (ingredients) => {
   return ingredients.map((ingr) => {
-    // return <div>
-    //   <img src={ingr.image} />
-    //   <p>{ingr.name}</p>
-    //   <p>{ingr.originalString}</p>
-    // </div>
-    return  <tr>
-              <td><img src={ingr.image} /></td>
-              <td>{ingr.name}</td>
-              <td>{ingr.originalString}</td>
-            </tr>
+    return  <TableRow>
+              <TableRowColumn><img src={ingr.image} /></TableRowColumn>
+              <TableRowColumn>{ingr.name}</TableRowColumn>
+              <TableRowColumn>{ingr.originalString}</TableRowColumn>
+            </TableRow>
   })
 }
 
