@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setMonth, getIngredients, getRecipes } from '../actions';
 import { bindActionCreators } from 'redux';
-
 import MonthDropdown from './MonthDropdown';
+import {Navbar,Row, Input} from 'react-materialize';
 
 // import {Navbar} from 'react-bootstrap';
 
@@ -25,18 +25,7 @@ const mapDispatchToProps = (dispatch) => {
 const NavBar = () => {
   console.log('src/components/NavBar/const_NavBar()');
   return (
-    // <div>
-    //   would like to render an image associated with the time of the month. might need to be a separate component.
-    // </div>
-    <nav>
-      <header>
-        <div>
-          <a href="#">supSeasonal</a>
-          {/* <div clasName={props.newDate}</div> */}
-        </div>
-      </header>
-      <MonthDropdown />
-    </nav>
+        <MonthDropdown/>
   )
 }
 
