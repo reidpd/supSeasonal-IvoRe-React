@@ -1,4 +1,5 @@
 import React from 'react';
+// import { Component } from 'react';
 import { connect } from 'react-redux';
 import months from '../data/months';
 import { bindActionCreators } from 'redux';
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 class MonthDropdown extends React.Component {
   constructor(props) {
     super(props);
-    //
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
