@@ -9,17 +9,6 @@ import './App.css';
 
 export default class App extends Component {
 
-  constructor(props) {
-    super(props);
-//================ TO BE REMOVED =========================
-    // this.state = {
-    //   ingredients: [],
-    //   recipes: [],
-    //   currentSelectedMonth: "jan",
-    // }
-  }
-  //===================
-
   render() {
     console.log('src/App.js/render');
     return (

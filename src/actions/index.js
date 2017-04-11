@@ -1,6 +1,4 @@
-// import React, { Component } from 'react';
 import axios from 'axios';
-// import { fetchRecipes } from '../API_Docs/Recipes';
 
 export const fetchIngredients = (queryMonth) => {
   console.log('src/actions/index/fetchIngredients');

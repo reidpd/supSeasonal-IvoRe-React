@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setMonth, getRecipes } from '../actions';
+import { getRecipes } from '../actions';
 
 import { Card, CardTitle } from 'react-materialize';
 import { Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn } from 'material-ui/Table';
 
+const _renderRecipeExtendedIngredients = (ingredients) => {
+  console.log('src/components/RecipesList/_renderRecipeExtendedIngredients');
+  return ingredients.map((ingr) => {
+    return  <TableRow>
+      <TableRowColumn><img src={ingr.image} alt="" /></TableRowColumn>
+      <TableRowColumn>{ingr.name}</TableRowColumn>
+      <TableRowColumn>{ingr.originalString}</TableRowColumn>
+    </TableRow>
+  })
+}
+
 const _renderRecipes = (recipes) => {
-  // console.log('src/components/RecipesList/_renderRecipes');
+  console.log('src/components/RecipesList/_renderRecipes');
+  console.log('recipes === ', recipes);
   if (recipes.length === 0) {
     return 'Select your current month & see a list of awesome recipes that include ingredients listed above!'
+  } else if (recipes === 'Recipes Loading!') {
+    return 'Recipes Loading!';
   } else {
-    // console.log('src/components/RecipesList/_renderRecipes/length>0');
+    console.log('src/components/RecipesList/_renderRecipes/length>0');
     return recipes.map((item) => {
       return (
         <div>
@@ -29,19 +43,6 @@ const _renderRecipes = (recipes) => {
                         {_renderRecipeExtendedIngredients(item.extendedIngredients)}
                       </TableBody>
                     </Table>
-                    {/* <Table>
-                      <thead>
-                        <tr>
-                          <th data-field="id">Visual</th>
-                          <th data-field="name">Name</th>
-                          <th data-field="price">Description</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        {_renderRecipeExtendedIngredients(item.extendedIngredients)}
-                      </tbody>
-                    </Table> */}
                     <p>{item.instructions}</p>
                   </div>
                   }>
@@ -54,21 +55,13 @@ const _renderRecipes = (recipes) => {
   }
 }
 
-const _renderRecipeExtendedIngredients = (ingredients) => {
-  return ingredients.map((ingr) => {
-    return  <TableRow>
-              <TableRowColumn><img src={ingr.image} /></TableRowColumn>
-              <TableRowColumn>{ingr.name}</TableRowColumn>
-              <TableRowColumn>{ingr.originalString}</TableRowColumn>
-            </TableRow>
-  })
-}
 
 const mapStateToProps = (state, ownProps) => {
   console.log('src/components/recipesList/mapStateToProps');
-  console.log(state.recipes);
+  console.log('state.recipes === ', state.recipes);
   return {
     recipes: state.recipes,
+    ingredients: state.ingredients,
     currentSelectedMonth: state.currentSelectedMonth
   }
 }
@@ -88,17 +81,5 @@ class RecipesList extends Component {
     )
   }
 }
-
-
-  // const singleIngredient = props.ingredient.map((ingredient) => {}
-
-  // return (
-  //     <ListGroupItem>Ingredient1 </ListGroupItem>
-  //     {/* <ListGroupItem>Ingredient2 </ListGroupItem>
-  //     <ListGroupItem>Ingredient3 </ListGroupItem>
-  //     <ListGroupItem>Ingredient4 </ListGroupItem>
-  //     <ListGroupItem>Ingredient5 </ListGroupItem> */}
-  //
-  // )
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesList);
