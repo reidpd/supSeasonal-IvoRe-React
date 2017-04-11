@@ -43,7 +43,7 @@ const _renderRecipes = (recipes) => {
                         {_renderRecipeExtendedIngredients(item.extendedIngredients)}
                       </TableBody>
                     </Table>
-                    <p>{item.instructions}</p>
+                    <p dangerouslySetInnerHTML={{ __html: item.instructions}} />
                   </div>
                   }>
                    <p>Ready to Eat in {item.readyInMinutes} Minutes</p>
