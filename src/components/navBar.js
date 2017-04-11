@@ -25,7 +25,18 @@ const mapDispatchToProps = (dispatch) => {
 const NavBar = () => {
   console.log('src/components/NavBar/const_NavBar()');
   return (
-        <MonthDropdown/>
+    // <div>
+    //   would like to render an image associated with the time of the month. might need to be a separate component.
+    // </div>
+    <div>
+      <header>
+        <div>
+          <a href="#">supSeasonal</a>
+          {/* <div clasName={props.newDate}</div> */}
+        </div>
+        <MonthDropdown />
+      </header>
+    </div>
   )
 }
 
