@@ -7,11 +7,11 @@ import { Card, CardTitle } from 'react-materialize';
 import { Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn } from 'material-ui/Table';
 
 const _renderRecipes = (recipes) => {
-  console.log('src/components/RecipesList/_renderRecipes');
+  // console.log('src/components/RecipesList/_renderRecipes');
   if (recipes.length === 0) {
     return 'Select your current month & see a list of awesome recipes that include ingredients listed above!'
   } else {
-    console.log('src/components/RecipesList/_renderRecipes/length>0');
+    // console.log('src/components/RecipesList/_renderRecipes/length>0');
     return recipes.map((item) => {
       return (
         <div>

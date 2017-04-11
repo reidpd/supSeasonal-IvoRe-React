@@ -1,6 +1,6 @@
 import initialState from './initialState';
 
-const ingredients = (state = initialState.ingredients, action) => {
+const ingredients = (state = [], action) => {
   console.log('src/reducers/ingredientsReducer/const_ingredients()');
   switch(action.type) {
     case 'GET_INGREDIENTS_PENDING':

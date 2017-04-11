@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { setMonth, getIngredients, getRecipes } from '../actions';
 import { bindActionCreators } from 'redux';
-
 import MonthDropdown from './MonthDropdown';
+import {Navbar,Row, Input} from 'react-materialize';
 
 // import {Navbar} from 'react-bootstrap';
 
