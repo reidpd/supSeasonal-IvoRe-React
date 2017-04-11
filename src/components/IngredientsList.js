@@ -13,6 +13,7 @@ const _renderIngredients = (ingredients) => {
     return 'Select your current month & hit submit to see a list of all the freshest ingredients that can be found!';
   } else {
     // console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.payload.length!==0');
+    return ingredients.map((item) => {
       console.log('src/components/IngredientsList/_renderIngredients/ingredientsList.ingredientsList===0/ingredientsList.map');
       if (item.food_name === '') { return '' } else {
         return    <Chip className="ingredientChip">
