@@ -12,11 +12,11 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 //================ TO BE REMOVED =========================
-    this.state = {
-      ingredients: [],
-      recipes: [],
-      currentSelectedMonth: "jan",
-    }
+    // this.state = {
+    //   ingredients: [],
+    //   recipes: [],
+    //   currentSelectedMonth: "jan",
+    // }
   }
   //===================
 

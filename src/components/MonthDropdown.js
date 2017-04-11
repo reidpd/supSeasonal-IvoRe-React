@@ -47,18 +47,18 @@ class MonthDropdown extends React.Component {
         trigger={<Button>Select A Month</Button>} >
         <form onSubmit={this.handleSubmit}>
           <label>
-        <NavItem value="jan">January</NavItem>
-        <NavItem value="feb">February</NavItem>
-        <NavItem value="mar">March</NavItem>
-        <NavItem value="apr">April</NavItem>
-        <NavItem value="may">May</NavItem>
-        <NavItem value="jun">June</NavItem>
-        <NavItem value="jul">July</NavItem>
-        <NavItem value="aug">Aug</NavItem>
-        <NavItem value="sep">September</NavItem>
-        <NavItem value="oct">October</NavItem>
-        <NavItem value="nov">November</NavItem>
-        <NavItem value="dec">December</NavItem>
+            <NavItem value="jan">January</NavItem>
+            <NavItem value="feb">February</NavItem>
+            <NavItem value="mar">March</NavItem>
+            <NavItem value="apr">April</NavItem>
+            <NavItem value="may">May</NavItem>
+            <NavItem value="jun">June</NavItem>
+            <NavItem value="jul">July</NavItem>
+            <NavItem value="aug">Aug</NavItem>
+            <NavItem value="sep">September</NavItem>
+            <NavItem value="oct">October</NavItem>
+            <NavItem value="nov">November</NavItem>
+            <NavItem value="dec">December</NavItem>
           </label>
           <input type="submit" value="Submit" />
         </form>
