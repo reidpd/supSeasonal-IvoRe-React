@@ -27,7 +27,7 @@ export default class App extends Component {
                 <li>{this.props.username}</li>
               </ul>
             </div>
-//          <RegistrationPage/>
+
             {/* <Route exact path="/" component={NavBar} /> */}
             <Route exact path="/" component={UserLogIn} />
             {/* <Route path="/home" component={NavBar} /> */}

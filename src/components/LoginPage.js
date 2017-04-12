@@ -15,12 +15,16 @@ const mapStateToProps = (state) =>{
     loggedIn: false
   }
 }
+
+const style = {
+  color: 'blue'
+}
 class UserLogIn extends Component {
 
   render() {
     const { handleSubmit } = this.props.findUser;
     return (
-      <div className="loginForm">
+      <div style={style} className="loginForm">
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
