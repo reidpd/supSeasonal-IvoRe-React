@@ -8,6 +8,7 @@ import initialState from './reducers/initialState';
 import thunkMiddleware from 'redux-thunk';
 import supseasonalReducers from './reducers';
 import App from './App';
+import Home from './Home';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
