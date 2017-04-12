@@ -4,19 +4,16 @@ import {bindActionCreators} from 'redux';
 import {findUser} from '../actions/index';
 import {connect} from 'react-redux';
 
-
-
 const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators({findUser}, dispatch);
 }
+// const mapStateToProps(state){
+//   return {
+//     loggedIn: false;
+//   }
+// }
 
-const mapStateToProps = (state) =>{
-  return {
-    loggedIn: false
-  }
-}
-class UserLogIn extends Component {
-
+class UserRegistration extends Component {
   render() {
     const { handleSubmit } = this.props.findUser;
     return (
@@ -30,6 +27,10 @@ class UserLogIn extends Component {
           <label htmlFor="password">Password</label>
           <Field name="password" component="input" type="password" label="input"/>
         </div>
+        <div>
+          <label htmlFor="username">Username</label>
+          <Field name="username" component="input" type="username" label="input"/>
+        </div>
         <button type="submit">Submit</button>
       </form>
       </div>
@@ -38,6 +39,4 @@ class UserLogIn extends Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(reduxForm({ form:'LoginForm'})(UserLogIn));
-// export default UserLogIn;
-// unsubmit habdler function would take
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({ form:'LoginForm'})(UserRegistration));
