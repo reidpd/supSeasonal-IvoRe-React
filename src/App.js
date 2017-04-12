@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import MonthDropdown from './components/MonthDropdown';
 import IngredientsList from './components/IngredientsList';
 import RecipesList from './components/RecipesList';
+import UserLogIn from './components/LoginPage';
 import './App.css';
 
 export default class App extends Component {
@@ -20,10 +21,11 @@ export default class App extends Component {
               <ul>
                 <li><Link to="/">Login</Link></li>
                 <li><Link to="/home">Home</Link></li>
+                <li>{this.props.username}</li>
               </ul>
             </div>
             {/* <Route exact path="/" component={NavBar} /> */}
-            {/* <Route exact path="/" component={LoginPage} /> */}
+            <Route exact path="/" component={UserLogIn} />
             {/* <Route path="/home" component={NavBar} /> */}
             <Route path="/home" component={MonthDropdown} />
             <Route path="/home" component={IngredientsList} />
