@@ -6,13 +6,13 @@ const logIn = (state = intitalState.loggedIn, action) => {
   console.log('userlogIn in logIn reducer');
   switch(action.type) {
     case 'LOGIN_PENDING':
-      return 'Connecting to server, please wait';
+      return state;
     case 'LOGIN_FULFILLED':
-      return action.payload;
+      return action.payload.data;
     case 'LOGIN_REJECTED':
-      return 'Please try again';
+      return action.payload;
     default:
-      return state
+      return state;
   }
 }
 

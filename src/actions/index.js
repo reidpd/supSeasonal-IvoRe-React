@@ -59,8 +59,11 @@ export const postLogUser = (value) => {
       return response.data;
   })
 }
+
+
 // findUserAction
 export const findUser = (userinfo) => {
+  console.log(userFound);
   const userFound = postLogUser(userinfo);
   return {
     type: 'LOGIN',
@@ -76,6 +79,7 @@ export const findUser = (userinfo) => {
        return response.data;
    })
  }
+
 export const regUser = (userinfo) => {
   // const regedUser = regUser(userinfo);
   return {
