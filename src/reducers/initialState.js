@@ -1,5 +1,7 @@
 export default {
   ingredients: [],
   recipes: [],
-  currentSelectedMonth: 'jan'
+  currentSelectedMonth: 'jan',
+  loggedIn: false
+  // registerd:
 }

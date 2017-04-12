@@ -23,6 +23,3 @@ export default class Home extends Component {
     );
   }
 }
-
-
-// export default App;
