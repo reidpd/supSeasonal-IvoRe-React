@@ -47,6 +47,44 @@ export const setMonth = (queryMonth) => {
   }
 }
 
+//Ivonne
+//user login and user registration.
+ // let user = {email:"", password:""}
+
+export const postLogUser = (value) => {
+  const postLogURL = `http://supseasonal.herokuapp.com/api/login`;
+  return axios.post(postLogURL, value)
+    .then((response) => {
+      console.log('user info:', response.data);
+      return response.data;
+  })
+}
+// findUserAction
+export const findUser = (userinfo) => {
+  const userFound = postLogUser(userinfo);
+  return {
+    type: 'LOGIN',
+    payload: userFound
+    }
+}
+//needs more work.
+ //registerUser
+ export const postToregUser = (props) =>{
+   const postLogURL = `http://supseasonal.herokuapp.com/api/register`;
+   return axios.post(postLogURL, {props})
+     .then((response) => {
+       return response.data;
+   })
+ }
+export const regUser = (userinfo) => {
+  // const regedUser = regUser(userinfo);
+  return {
+    type: 'REGISTER_FULFILLED',
+    payload: postToregUser(userinfo)
+  }
+}
+
+
 
 // export const setRecipes = () => {
 //

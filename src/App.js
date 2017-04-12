@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import RegistrationPage from './components/LoginPage';
 // import {FieldGroup} from 'react-bootstrap';
-// import LogIn from './components/Login_page';
+// import LogIn from './components/LoginPage';
 
-import NavBar from './components/NavBar';
-import IngredientsList from './components/IngredientsList';
-import RecipesList from './components/RecipesList';
+// import NavBar from './components/NavBar';
+// import IngredientsList from './components/IngredientsList';
+// import RecipesList from './components/RecipesList';
 import './App.css';
 
 export default class App extends Component {
@@ -14,9 +15,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <NavBar />
+          <RegistrationPage/>
+          {/* <NavBar />
           <IngredientsList />
-          <RecipesList />
+          <RecipesList /> */}
           {/*Insert and image */}
         </div>
       </div>
